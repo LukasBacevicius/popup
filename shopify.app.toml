@@ -1,0 +1,37 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "fd07b34731a86be40ba2fba445259fba"
+name = "shop-in-widget"
+handle = "shop-in-widget"
+application_url = "https://followed-door-april-conduct.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "quickstart-1a61a404.myshopify.com"
+include_config_on_deploy = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "read_content,read_files,read_metaobject_definitions,read_products,unauthenticated_read_content,unauthenticated_read_metaobjects,unauthenticated_read_product_listings"
+
+[auth]
+redirect_urls = [
+  "https://followed-door-april-conduct.trycloudflare.com/auth/callback",
+  "https://followed-door-april-conduct.trycloudflare.com/auth/shopify/callback",
+  "https://followed-door-april-conduct.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2025-04"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/scopes_update" ]
+  uri = "/webhooks/app/scopes_update"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks/app/uninstalled"
+
+[pos]
+embedded = false
