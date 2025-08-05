@@ -3,7 +3,7 @@
 client_id = "fd07b34731a86be40ba2fba445259fba"
 name = "shop-in-widget"
 handle = "shop-in-widget"
-application_url = "https://followed-door-april-conduct.trycloudflare.com"
+application_url = "https://bulk-coffee-strips-imported.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "read_content,read_files,read_metaobject_definitions,read_products,unau
 
 [auth]
 redirect_urls = [
-  "https://followed-door-april-conduct.trycloudflare.com/auth/callback",
-  "https://followed-door-april-conduct.trycloudflare.com/auth/shopify/callback",
-  "https://followed-door-april-conduct.trycloudflare.com/api/auth/callback"
+  "https://bulk-coffee-strips-imported.trycloudflare.com/auth/callback",
+  "https://bulk-coffee-strips-imported.trycloudflare.com/auth/shopify/callback",
+  "https://bulk-coffee-strips-imported.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
