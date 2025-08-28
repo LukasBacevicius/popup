@@ -1,0 +1,32 @@
+{
+  "name": "shop-in-widget-embeddable",
+  "version": "1.0.0",
+  "description": "Embeddable widget for displaying Shopify products",
+  "type": "module",
+  "main": "dist/widget.js",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "preview": "vite preview",
+    "type-check": "tsc --noEmit"
+  },
+  "keywords": [
+    "shopify",
+    "widget",
+    "embeddable",
+    "preact"
+  ],
+  "author": "lukas",
+  "license": "MIT",
+  "dependencies": {
+    "preact": "^10.19.3"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "^2.8.1",
+    "@types/node": "^20.11.5",
+    "terser": "^5.43.1",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.12",
+    "vite-plugin-css-injected-by-js": "^3.4.0"
+  }
+}

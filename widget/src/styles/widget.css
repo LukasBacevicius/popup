@@ -1,0 +1,366 @@
+/* Base widget styles with CSS isolation */
+.shop-in-widget {
+  position: fixed !important;
+  z-index: 999999 !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  color: #333 !important;
+  box-sizing: border-box !important;
+}
+
+.shop-in-widget *,
+.shop-in-widget *::before,
+.shop-in-widget *::after {
+  box-sizing: border-box !important;
+}
+
+/* Positioning variants */
+.shop-in-widget-bottom-right {
+  bottom: 20px !important;
+  right: 20px !important;
+}
+
+.shop-in-widget-bottom-left {
+  bottom: 20px !important;
+  left: 20px !important;
+}
+
+.shop-in-widget-top-right {
+  top: 20px !important;
+  right: 20px !important;
+}
+
+.shop-in-widget-top-left {
+  top: 20px !important;
+  left: 20px !important;
+}
+
+/* Theme variants */
+.shop-in-widget-light {
+  --widget-bg: #ffffff;
+  --widget-text: #333333;
+  --widget-border: #e1e1e1;
+  --widget-shadow: rgba(0, 0, 0, 0.15);
+  --widget-primary: #007ace;
+  --widget-primary-hover: #005a9c;
+}
+
+.shop-in-widget-dark {
+  --widget-bg: #2d3748;
+  --widget-text: #ffffff;
+  --widget-border: #4a5568;
+  --widget-shadow: rgba(0, 0, 0, 0.3);
+  --widget-primary: #4299e1;
+  --widget-primary-hover: #3182ce;
+}
+
+/* Widget wrapper */
+.shop-in-widget-wrapper {
+  position: relative !important;
+}
+
+/* Floating Action Button (FAB) */
+.shop-in-widget-fab {
+  width: 60px !important;
+  height: 60px !important;
+  border-radius: 50% !important;
+  border: none !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+  box-shadow: 0 4px 16px var(--widget-shadow) !important;
+  position: relative !important;
+  outline: none !important;
+}
+
+.shop-in-widget-fab.light {
+  background-color: var(--widget-primary) !important;
+  color: white !important;
+}
+
+.shop-in-widget-fab.dark {
+  background-color: var(--widget-primary) !important;
+  color: white !important;
+}
+
+.shop-in-widget-fab:hover {
+  transform: scale(1.05) !important;
+  background-color: var(--widget-primary-hover) !important;
+  box-shadow: 0 6px 20px var(--widget-shadow) !important;
+}
+
+.shop-in-widget-fab:active {
+  transform: scale(0.95) !important;
+}
+
+.shop-in-widget-fab svg {
+  transition: transform 0.2s ease !important;
+}
+
+.shop-in-widget-fab.open svg {
+  transform: rotate(90deg) !important;
+}
+
+/* Widget Panel */
+.shop-in-widget-panel {
+  position: absolute !important;
+  bottom: 70px !important;
+  right: 0 !important;
+  width: 320px !important;
+  max-height: 500px !important;
+  background: var(--widget-bg) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 40px var(--widget-shadow) !important;
+  border: 1px solid var(--widget-border) !important;
+  overflow: hidden !important;
+  animation: slideIn 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+  transform-origin: bottom right !important;
+}
+
+/* Adjust panel position for different FAB positions */
+.shop-in-widget-bottom-left .shop-in-widget-panel {
+  right: auto !important;
+  left: 0 !important;
+  transform-origin: bottom left !important;
+}
+
+.shop-in-widget-top-right .shop-in-widget-panel {
+  bottom: auto !important;
+  top: 70px !important;
+  transform-origin: top right !important;
+}
+
+.shop-in-widget-top-left .shop-in-widget-panel {
+  bottom: auto !important;
+  top: 70px !important;
+  right: auto !important;
+  left: 0 !important;
+  transform-origin: top left !important;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Panel Header */
+.shop-in-widget-header {
+  padding: 16px 20px !important;
+  border-bottom: 1px solid var(--widget-border) !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  background: var(--widget-bg) !important;
+}
+
+.shop-in-widget-header h3 {
+  margin: 0 !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  color: var(--widget-text) !important;
+}
+
+.shop-in-widget-close {
+  background: none !important;
+  border: none !important;
+  font-size: 24px !important;
+  cursor: pointer !important;
+  color: var(--widget-text) !important;
+  padding: 0 !important;
+  width: 24px !important;
+  height: 24px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 4px !important;
+  transition: background-color 0.2s ease !important;
+}
+
+.shop-in-widget-close:hover {
+  background-color: var(--widget-border) !important;
+}
+
+/* Panel Content */
+.shop-in-widget-content {
+  padding: 20px !important;
+  max-height: 400px !important;
+  overflow-y: auto !important;
+}
+
+/* Loading State */
+.shop-in-widget-loading {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 40px 20px !important;
+  color: var(--widget-text) !important;
+}
+
+.shop-in-widget-spinner {
+  width: 32px !important;
+  height: 32px !important;
+  border: 2px solid var(--widget-border) !important;
+  border-top: 2px solid var(--widget-primary) !important;
+  border-radius: 50% !important;
+  animation: spin 1s linear infinite !important;
+  margin-bottom: 12px !important;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Error State */
+.shop-in-widget-error {
+  text-align: center !important;
+  padding: 20px !important;
+  color: #e53e3e !important;
+}
+
+.shop-in-widget-error button {
+  margin-top: 12px !important;
+  padding: 8px 16px !important;
+  background: var(--widget-primary) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  font-size: 14px !important;
+}
+
+.shop-in-widget-error button:hover {
+  background: var(--widget-primary-hover) !important;
+}
+
+/* Empty State */
+.shop-in-widget-empty {
+  text-align: center !important;
+  padding: 40px 20px !important;
+  color: var(--widget-text) !important;
+}
+
+/* Product Grid */
+.shop-in-widget-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)) !important;
+  gap: 16px !important;
+}
+
+/* Product Card */
+.shop-in-widget-product {
+  border: 1px solid var(--widget-border) !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  background: var(--widget-bg) !important;
+}
+
+.shop-in-widget-product:hover {
+  border-color: var(--widget-primary) !important;
+  box-shadow: 0 2px 8px var(--widget-shadow) !important;
+  transform: translateY(-1px) !important;
+}
+
+.shop-in-widget-product-image {
+  position: relative !important;
+  width: 100% !important;
+  height: 120px !important;
+  overflow: hidden !important;
+  background: #f7f7f7 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.shop-in-widget-product-image img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+.shop-in-widget-product-placeholder {
+  color: #999 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.shop-in-widget-product-info {
+  padding: 12px !important;
+}
+
+.shop-in-widget-product-title {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  margin: 0 0 4px 0 !important;
+  color: var(--widget-text) !important;
+  line-height: 1.3 !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+}
+
+.shop-in-widget-product-price {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  margin: 0 !important;
+  color: var(--widget-primary) !important;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+  .shop-in-widget-panel {
+    width: calc(100vw - 40px) !important;
+    max-width: 320px !important;
+  }
+  
+  .shop-in-widget-bottom-right {
+    right: 10px !important;
+    bottom: 10px !important;
+  }
+  
+  .shop-in-widget-bottom-left {
+    left: 10px !important;
+    bottom: 10px !important;
+  }
+  
+  .shop-in-widget-top-right {
+    right: 10px !important;
+    top: 10px !important;
+  }
+  
+  .shop-in-widget-top-left {
+    left: 10px !important;
+    top: 10px !important;
+  }
+}
+
+/* Ensure widget doesn't interfere with page layout */
+.shop-in-widget,
+.shop-in-widget * {
+  all: unset !important;
+}
+
+/* Then re-apply our specific styles */
+.shop-in-widget {
+  position: fixed !important;
+  z-index: 999999 !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  color: #333 !important;
+  box-sizing: border-box !important;
+}
